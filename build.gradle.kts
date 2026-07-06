@@ -1,5 +1,6 @@
 plugins {
     id("java-library")
+    id("maven-publish")
 }
 
 allprojects {
@@ -15,6 +16,7 @@ allprojects {
 subprojects {
 
     apply(plugin = "java-library")
+    apply(plugin = "maven-publish")
 
     group = "dev.triumphteam"
     version = "3.1.14-SNAPSHOT"

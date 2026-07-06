@@ -1,6 +1,8 @@
+group = "dev.triumphteam"
+version = "3.1.14-SNAPSHOT"
+
 plugins {
-    `maven-publish`
-    id("com.vanniktech.maven.publish") version "0.34.0"
+    `java-library`
 }
 
 repositories {
@@ -21,57 +23,9 @@ dependencies {
     api("net.kyori:adventure-platform-bukkit:4.4.1")
 }
 
-val javaComponent: SoftwareComponent = components["java"]
-
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
-}
-
-publishing {
-    repositories {
-        maven {
-            name = "triumph"
-            credentials {
-                username = providers.gradleProperty("triumph.repo.user").get()
-                password = providers.gradleProperty("triumph.repo.token").get()
-            }
-
-            url = uri("https://repo.triumphteam.dev/snapshots/")
-        }
-
-        // more repositories can go here
-    }
-}
-
-mavenPublishing {
-    // publishToMavenCentral()
-    // signAllPublications()
-
-    pom {
-        name.set("Triumph GUI")
-        description.set("Library for easy creation of GUIs for Bukkit plugins.")
-        url.set("https://github.com/TriumphTeam/triumph-gui")
-        licenses {
-            license {
-                name.set("MIT License")
-                url.set("http://www.opensource.org/licenses/mit-license.php")
-            }
-        }
-        developers {
-            developer {
-                id.set("matt")
-                name.set("Mateus Moreira")
-                organization.set("TriumphTeam")
-                organizationUrl.set("https://github.com/TriumphTeam")
-            }
-        }
-        scm {
-            connection.set("scm:git:git://github.com/TriumphTeam/triumph-gui.git")
-            developerConnection.set("scm:git:ssh://github.com:TriumphTeam/triumph-gui.git")
-            url.set("https://github.com/TriumphTeam/triumph-gui")
-        }
-    }
 }
 
 tasks {

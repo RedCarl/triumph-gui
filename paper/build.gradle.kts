@@ -1,6 +1,8 @@
+group = "dev.triumphteam"
+version = "3.1.14-SNAPSHOT"
+
 plugins {
-    `maven-publish`
-    id("com.vanniktech.maven.publish") version "0.34.0"
+    `java-library`
 }
 
 repositories {
@@ -17,40 +19,10 @@ dependencies {
     }
 }
 
-val javaComponent: SoftwareComponent = components["java"]
-
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
     disableAutoTargetJvm()
-}
-mavenPublishing {
-    publishToMavenCentral()
-
-    pom {
-        name.set("Triumph GUI")
-        description.set("Library for easy creation of GUIs for Bukkit plugins.")
-        url.set("https://github.com/TriumphTeam/triumph-gui")
-        licenses {
-            license {
-                name.set("MIT License")
-                url.set("http://www.opensource.org/licenses/mit-license.php")
-            }
-        }
-        developers {
-            developer {
-                id.set("matt")
-                name.set("Mateus Moreira")
-                organization.set("TriumphTeam")
-                organizationUrl.set("https://github.com/TriumphTeam")
-            }
-        }
-        scm {
-            connection.set("scm:git:git://github.com/TriumphTeam/triumph-gui.git")
-            developerConnection.set("scm:git:ssh://github.com:TriumphTeam/triumph-gui.git")
-            url.set("https://github.com/TriumphTeam/triumph-gui")
-        }
-    }
 }
 
 tasks {

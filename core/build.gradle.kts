@@ -1,6 +1,5 @@
 plugins {
     `maven-publish`
-    signing
     id("com.vanniktech.maven.publish") version "0.34.0"
 }
 
@@ -20,13 +19,6 @@ dependencies {
     api("net.kyori:adventure-text-serializer-legacy:$adventureVersion")
     api("net.kyori:adventure-text-serializer-gson:$adventureVersion")
     api("net.kyori:adventure-platform-bukkit:4.4.1")
-}
-
-license {
-    header = rootProject.file("LICENSE")
-    encoding = "UTF-8"
-    mapping("java", "JAVADOC_STYLE")
-    include("**/*.java")
 }
 
 val javaComponent: SoftwareComponent = components["java"]

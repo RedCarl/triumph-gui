@@ -1,6 +1,5 @@
 plugins {
     `maven-publish`
-    signing
     id("com.vanniktech.maven.publish") version "0.34.0"
 }
 
@@ -18,13 +17,6 @@ dependencies {
     }
 }
 
-license {
-    header = rootProject.file("LICENSE")
-    encoding = "UTF-8"
-    mapping("java", "JAVADOC_STYLE")
-    include("**/*.java")
-}
-
 val javaComponent: SoftwareComponent = components["java"]
 
 java {
@@ -34,7 +26,6 @@ java {
 }
 mavenPublishing {
     publishToMavenCentral()
-    signAllPublications()
 
     pom {
         name.set("Triumph GUI")
